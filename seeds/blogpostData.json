@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Top 5 comedy podcasts",
+        "contents": "Bad Friends, Flagrant2, Your moms house, tiger belly, Whiskey ginger",
+        "date_created": "2022-02-27",
+        "user_id": 1
+    },
+    {
+        "title": "Top 3 comedians",
+        "contents": "Bill Burr, Dave Chapelle, Andrew Schulz",
+        "date_created": "2022-02-27",
+        "user_id": 1
+    },
+    {
+        "title": "Top 5 comedy podcasts",
+        "contents": "Congratulations, Fighter and the Kid, 2Bears1Cave, Impaulsive, JRE",
+        "date_created": "2022-02-27",
+        "user_id": 2
+    }
+]
