@@ -11,11 +11,11 @@ Blogpost.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
+    contents: {
       type: DataTypes.STRING,
     },
     date_created: {
@@ -23,9 +23,8 @@ Blogpost.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    needed_funding: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
+    comment: {
+      type: DataTypes.STRING,
     },
     user_id: {
       type: DataTypes.INTEGER,
