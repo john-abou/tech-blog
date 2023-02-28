@@ -35,7 +35,7 @@ app.use(routes);
 
 // Set up middleware
 app.use(express.json());
-app.use(URLencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 // Turn on connection to db and server

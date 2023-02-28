@@ -1,6 +1,6 @@
 const user = require("express").Router();
 const { BlogPost, User } = require("../../models");
-const withAuth = require("../../utils/auth");
+// const withAuth = require("../../utils/auth");
 
 // GET all users
 user.get("/", (req, res) => {});
@@ -9,6 +9,6 @@ user.get("/", (req, res) => {});
 user.get("/:id", (req, res) => {});
 
 // POST a new user
-user.post("/", withAuth, (req, res) => {});
+// user.post("/", withAuth, (req, res) => {});
 
 module.exports = user;
