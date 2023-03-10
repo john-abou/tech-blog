@@ -34,6 +34,13 @@ views.get("/:id", async (req, res) => {
 });
 
 // GET request to login page
-views.get("/login", (req, res) => {});
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('homepage', req.session.loggedIn);
+});
 
 module.exports = views;
