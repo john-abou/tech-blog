@@ -1,17 +1,15 @@
 const views = require("express").Router();
 const { User, Blogpost } = require("../models");
-const withAuth = require("../helpers");
+const withAuth = require("../helpers/auth");
 
-// GET all blog posts
+// GET all blog posts and load the home page
 views.get("/", async (req, res) => {
-  const blogpostData = Blogpost.findAll({
-    include: [User],
-    attributes: ["name"],
-  });
   try {
     const blogpostData = await Blogpost.findAll({
-      include: [User],
-      attributes: ["name"],
+      include: {
+        model: [User],
+        attributes: ["name"],
+      }
     });
     const blogpost = blogpostData.map((blog) => blog.get({ plain: true }));
 
@@ -21,7 +19,7 @@ views.get("/", async (req, res) => {
   }
 });
 
-// GET a single blog post
+// GET a single blog post and load the blogpost specific page
 views.get("/:id", async (req, res) => {
   try {
     const blogpostData = await Blogpost.findByPk(req.params.id);
@@ -34,13 +32,13 @@ views.get("/:id", async (req, res) => {
 });
 
 // GET request to login page
-router.get('/login', (req, res) => {
+views.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
     return;
   }
 
-  res.render('homepage', req.session.loggedIn);
+  res.render('login');
 });
 
 module.exports = views;
