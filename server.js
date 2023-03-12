@@ -2,10 +2,10 @@
 const express = require("express");
 const session = require("express-session");
 const routes = require("./controllers");
-const exphbs = require("express-handlebars");
+const exphbs = require('express-handlebars');
 const sequelize = require("./config/connection");
-const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const path = require("path");
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 // Declare app variables
 const app = express();
@@ -16,6 +16,9 @@ const sess = {
   secret: "Super secret secret", // secret key to sign the session ID cookie
   cookie: {
     maxAge: 1000 * 60 * 60, // 1 hour
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
   },
   resave: false, // If the session object isn't modified from a request, do not resave the session
   saveUninitialized: true, // Saves all new session objects, even if they are not modified after creation
