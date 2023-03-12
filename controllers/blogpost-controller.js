@@ -31,6 +31,7 @@ const getSingleBlogpost = async (req, res) => {
   }
 };
 
+// POST a blogpost
 const createBlogpost = async (req,res) => {
     try{
         const newBlog = await Blogpost.create(req.body);
@@ -43,6 +44,7 @@ const createBlogpost = async (req,res) => {
     }
 }
 
+// DELETE a blogpost
 const deleteBlogpost = async (req,res) => {
     try {
         const blogData = await Blogpost.destroy({
