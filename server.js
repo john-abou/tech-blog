@@ -28,6 +28,11 @@ const sess = {
 };
 app.use(session(sess));
 
+// Set up middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
+
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({});
 app.engine("handlebars", hbs.engine); // registers the handlebars engine
@@ -35,11 +40,6 @@ app.set("view engine", "handlebars"); // sets the default view engine as handleb
 
 // Turn on routes
 app.use(routes);
-
-// Set up middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
 
 // Turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
