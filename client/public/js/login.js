@@ -39,7 +39,7 @@ const user_ps = $('#password-signup').val().trim();
 const user_name = $('#name-signup').val().trim();
 
 if (user_name && user_email && user_ps) {
-    const response = await fetch('/api/user', {
+    const response = await fetch('/api/user/signup', {
     method: 'POST',
     body: JSON.stringify({ 
         name: user_name, 

@@ -10,6 +10,9 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 // Declare app variables
 const app = express();
 const PORT = process.env.PORT || 3001;
+const staticPath = path.join(__dirname, "../client/public");
+console.log(staticPath);
+
 
 // Configure server sessions and tell the app to use the session object
 const sess = {
@@ -31,12 +34,15 @@ app.use(session(sess));
 // Set up middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(staticPath));
 
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({});
 app.engine("handlebars", hbs.engine); // registers the handlebars engine
 app.set("view engine", "handlebars"); // sets the default view engine as handlebars
+//location of  views folder
+app.set('views', path.join(__dirname, "../client/views"));
+
 
 // Turn on routes
 app.use(routes);

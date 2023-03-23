@@ -59,7 +59,11 @@ const deleteBlogpost = async (req,res) => {
                 id: req.params.id
             }
         })
-        res.sstatus(200).json({
+        if (!blogData) {
+            res.status(404).json({message: 'No blogpost found with this id!'})
+            return;
+        }
+        res.status(200).json({
             message: 'Success! Deleted the post.',
             data: blogData
         })
