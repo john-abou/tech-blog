@@ -1,10 +1,10 @@
-<div class="text-center">
-  <h2>{{title}}</h2>
-  <p>Created by {{user.name}}</p>
-  <p> {{contents}} </p>
+<article class="text-center">
+  <h2>{{blogpost.title}}</h2>
+  <p>Created by <a href="/user/{{blogpost.user.id}}">{{blogpost.user.name}}</a></p>
+  <p> {{blogpost.contents}} </p>
   <div class="col-md-7">
     <p>
-      {{comment}}
+      {{blogpost.comment}}
     </p>
   </div>
-</div>
+</article>

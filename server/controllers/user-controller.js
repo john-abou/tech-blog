@@ -24,10 +24,7 @@ const { Blogpost, User } = require('../models');
             req.session.userId = newUserPlain.id;
           })
 
-          res.render('homepage', {
-            newUserPlain,
-            loggedIn: req.session.loggedIn
-          })
+          res.status(200).json({message: 'success!', user: newUserPlain})
       } catch (err) {
           console.log(err);
           res.status(500).json(err);
@@ -64,13 +61,14 @@ const { Blogpost, User } = require('../models');
       }
   
       // If the user exists and the password is correct, save the session and set the loggedIn flag to `true`
-      req.session.save(() => {
+      req.session.save( () => {
         req.session.loggedIn = true;
         req.session.userId = userDataPlain.id;
+
+        console.log('login flag test: ', req.session.loggedIn);
+
+        res.status(200).json({ user: userDataPlain, message: 'You are now logged in!' });
       });
-      
-      // Respond with a success message
-      res.status(200).json({ user: userDataPlain, message: 'You are now logged in!' });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);

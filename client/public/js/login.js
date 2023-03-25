@@ -50,15 +50,15 @@ if (user_name && user_email && user_ps) {
     });
     console.log(response);
     if (response.ok) {
-    document.location.replace('/homepage');
+      document.location.replace('/homepage');
     } else {
-    const isJson = response.headers.get('content-type').includes('application/json');
-    const data = isJson ? await response.json() : null;
-    alert('Failed to sign up.');
+      const isJson = response.headers.get('content-type').includes('application/json');
+      const data = isJson ? await response.json() : null;
+      alert('Failed to sign up.');
     }
 }
 };
-  
+
   
 // Event listeners for the forms
 $('#login-btn').click(loginFormHandler);

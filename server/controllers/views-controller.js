@@ -38,15 +38,14 @@ const singleBlogPage = async (req, res) => {
         attributes: ["name"],
       }
     });
-    const blog = blogpostData.get({ plain: true });
-
-    console.log(blog);
+    const blogpost = blogpostData.get({ plain: true });
 
     res.render("blogpost", {
-      blog,
+      blogpost,
       loggedIn: req.session.loggedIn
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 };
