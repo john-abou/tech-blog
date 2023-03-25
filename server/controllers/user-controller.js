@@ -7,7 +7,7 @@ const { Blogpost, User } = require('../models');
       const userData = await User.findByPk(req.params.id);
       const user = userData.map((userD) => userD.get({ plain: true }));
   
-      res.render("User", user);
+      res.render("profile", user);
     } catch (err) {
       res.status(500).json(err);
     }
@@ -21,14 +21,15 @@ const { Blogpost, User } = require('../models');
           
           req.session.save(() => {
             req.session.loggedIn = true,
-            req.session.userid = newUserPlain.id;
+            req.session.userId = newUserPlain.id;
           })
 
-          res.render('/homepage', {
+          res.render('homepage', {
             newUserPlain,
             loggedIn: req.session.loggedIn
           })
       } catch (err) {
+          console.log(err);
           res.status(500).json(err);
       }
   }
@@ -39,7 +40,7 @@ const { Blogpost, User } = require('../models');
       // Find the user who matches the posted e-mail address
       const userData = await User.findOne({
         where: {
-          email: req.body.user_email,
+          email: req.body.email,
         },
       });
       
@@ -53,10 +54,11 @@ const { Blogpost, User } = require('../models');
 
       // Verify the posted password with the password store in the database
       const userDataPlain = userData.get({ plain: true });
-      const validPassword = await userData.checkPassword(req.body.user_ps);
-  
+      const validPassword = await userData.checkPassword(req.body.password);
+      
       // If the password doesn't match, respond with an error
       if (!validPassword) {
+        console.log('password check')
         res.status(400).json({ message: 'Incorrect email or password. Please try again!' });
         return;
       }
@@ -64,7 +66,7 @@ const { Blogpost, User } = require('../models');
       // If the user exists and the password is correct, save the session and set the loggedIn flag to `true`
       req.session.save(() => {
         req.session.loggedIn = true;
-        req.session.userid = userDataPlain.id;
+        req.session.userId = userDataPlain.id;
       });
       
       // Respond with a success message

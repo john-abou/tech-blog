@@ -3,8 +3,8 @@ const loginFormHandler = async (event) => {
     event.preventDefault();
   
   
-    const user_email = $('#login-email').val().trim();
-    const user_ps = $('#login-ps').val().trim();
+    const user_email = $('#email-login').val().trim();
+    const user_ps = $('#password-login').val().trim();
   
   
     if (user_email && user_ps) {
@@ -18,7 +18,7 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/homepage');
       } else {
         const isJson = response.headers.get('content-type').includes('application/json');
         const data = isJson ? await response.json() : null;
@@ -48,9 +48,9 @@ if (user_name && user_email && user_ps) {
     }),
     headers: { 'Content-Type': 'application/json' },
     });
-
+    console.log(response);
     if (response.ok) {
-    document.location.replace('/');
+    document.location.replace('/homepage');
     } else {
     const isJson = response.headers.get('content-type').includes('application/json');
     const data = isJson ? await response.json() : null;
