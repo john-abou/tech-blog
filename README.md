@@ -20,6 +20,8 @@ To install and run this website on your local machine: clone the repository, ins
 ## Usage
 The user can view blogposts from the homepage, they can navigate to a users profile page to view all their blogposts, navigate to a specific blogpost to view all the comments. 
 
+Deployed Site: 
+
 Login Dummy Account:
 * email: johndoe@gmail.com
 * password: 123456
