@@ -16,11 +16,13 @@ const homepage = async (req, res) => {
     const blogpostData = await Blogpost.findAll({
       include: {
         model: User,
-        attributes: ["name"],      
+        attributes: ["name", "id"],      
       },
       order: [["date_created", "DESC"]]
     });
     const blogposts = blogpostData.map((blog) => blog.get({ plain: true }));
+
+    console.log(blogposts);
 
     res.render("homepage", {
       blogposts, 
@@ -66,21 +68,48 @@ const singleBlogPage = async (req, res) => {
 // GET a single users posts and load the user specific page
 const profilePage = async (req, res) => {
   try {
-    const userData = await User.findByPk(req.params.userId);
-    const user = userData.map((userD) => userD.get({ plain: true }));
+    const userBlogposts = await Blogpost.findAll({
+      where: {
+        user_id: req.params.userId,
+      },
+    });
+    console.log(userBlogposts);
+    const blogposts = userBlogposts.map((blog) => blog.get({ plain: true }));
 
     res.render("profile", {
-      user,
+      blogposts,
       loggedIn: req.session.loggedIn
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 };
+
+const userPage = async (req, res) => {
+  try {
+    const userBlogposts = await Blogpost.findAll({
+      where: {
+        user_id: req.session.userId,
+      },
+    });
+    console.log(userBlogposts);
+    const blogposts = userBlogposts.map((blog) => blog.get({ plain: true }));
+
+    res.render("profile", {
+      blogposts,
+      loggedIn: req.session.loggedIn
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+}
 
 module.exports = {
   loginPage,
   homepage,
   singleBlogPage,
-  profilePage
+  profilePage,
+  userPage
 };

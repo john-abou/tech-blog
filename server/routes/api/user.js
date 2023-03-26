@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const {
-    getSingleUser,
     createUser,
     login,
     logout,
@@ -9,8 +8,6 @@ const {
 // /api/user/signup
 router.route('/signup').post(createUser);
 
-// /api/user/:id
-router.route('/:id').get(getSingleUser);
 
 // /api/user/login
 router.route('/login').post(login)

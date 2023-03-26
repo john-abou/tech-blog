@@ -3,7 +3,8 @@ const {
     loginPage,
     homepage,
     singleBlogPage,
-    profilePage
+    profilePage,
+    userPage
 } = require('../controllers/views-controller')
 const withAuth = require('../helpers/auth')
 
@@ -17,5 +18,7 @@ router.route('/homepage').get(homepage);
 router.route('/blogpost/:id').get(withAuth, singleBlogPage)
 
 router.route('/user/:userId').get(withAuth, profilePage)
+
+router.route('/profile').get(withAuth, userPage)
   
 module.exports = router ;

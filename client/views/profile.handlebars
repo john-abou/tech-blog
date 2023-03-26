@@ -1,0 +1,21 @@
+<section>
+  <div>
+    <h1>{{blogpost.user.name}}</h1>
+  </div>
+  <div id="blogposts-container">
+  {{#each blogposts as |blogpost| }}
+  <div class="row mb-4 blogpost">
+    <div class="col-md-5">
+      <h3>
+        <a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a>
+      </h3>
+      <p>
+        {{blogpost.contents}}
+      </p>
+      <p>Created by <a href="/user/{{blogpost.user.id}}">{{blogpost.user.name}}</a> on {{blogpost.date_created}}</p>
+    </div>
+  </div>
+  {{/each}}
+  </div>
+</section>
+<script src="/js/profile.js"></script>
