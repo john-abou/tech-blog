@@ -1,7 +1,7 @@
 {
   "name": "module14",
   "version": "1.0.0",
-  "engines": {"node 16.x"},
+  "engines": {"node: 16.x"},
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -24,5 +24,6 @@
   "dependencies": {
     "concurrent": "^0.3.2",
     "dayjs": "^1.11.7"
-  }
+  },
+  "engines": {"node 16.x"}
 }
