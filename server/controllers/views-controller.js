@@ -10,14 +10,15 @@ const loginPage = async (req, res) => {
   res.render('login');
 };
 
-// GET all blog posts and load the home page
+// GET all blog posts in desc order and load the home page
 const homepage = async (req, res) => {
   try {
     const blogpostData = await Blogpost.findAll({
       include: {
         model: User,
         attributes: ["name"],      
-      }
+      },
+      order: [["date_created", "DESC"]]
     });
     const blogposts = blogpostData.map((blog) => blog.get({ plain: true }));
 
@@ -25,6 +26,7 @@ const homepage = async (req, res) => {
       blogposts, 
       loggedIn: req.session.loggedIn});
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 };

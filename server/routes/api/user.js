@@ -15,7 +15,6 @@ router.route('/:id').get(getSingleUser);
 // /api/user/login
 router.route('/login').post(login)
 
-
 // /api/user/logout
 router.route('/logout').post(logout)
 
