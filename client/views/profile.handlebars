@@ -12,7 +12,7 @@
       <p>
         {{blogpost.contents}}
       </p>
-      <p>Created by <a href="/user/{{blogpost.user.id}}">{{blogpost.user.name}}</a> on {{blogpost.date_created}}</p>
+      <p>Created by <a href="/user/{{blogpost.user.id}}">{{blogpost.user.name}}</a> on {{format_date blogpost.date_created}}</p>
     </div>
   </div>
   {{/each}}
