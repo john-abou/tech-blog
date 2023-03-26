@@ -6,13 +6,12 @@ const exphbs = require('express-handlebars');
 const sequelize = require("./config/connection");
 const path = require("path");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const handlebarHelpers = require('./helpers/dateFormatter.js')
 
 // Declare app variables
 const app = express();
 const PORT = process.env.PORT || 3001;
 const staticPath = path.join(__dirname, "../client/public");
-console.log(staticPath);
-
 
 // Configure server sessions and tell the app to use the session object
 const sess = {
@@ -37,7 +36,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(staticPath));
 
 // Set up Handlebars.js engine with custom helpers
-const hbs = exphbs.create({});
+const hbs = exphbs.create({handlebarHelpers});
 app.engine("handlebars", hbs.engine); // registers the handlebars engine
 app.set("view engine", "handlebars"); // sets the default view engine as handlebars
 //location of  views folder
@@ -48,6 +47,6 @@ app.set('views', path.join(__dirname, "../client/views"));
 app.use(routes);
 
 // Turn on connection to db and server
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log("Now listening on http://localhost:3001"));
 });

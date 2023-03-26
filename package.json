@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/john-abou/tech-blog#readme",
   "dependencies": {
-    "concurrent": "^0.3.2"
+    "concurrent": "^0.3.2",
+    "dayjs": "^1.11.7"
   }
 }
