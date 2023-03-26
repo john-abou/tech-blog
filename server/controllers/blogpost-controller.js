@@ -4,7 +4,11 @@ const { Blogpost, User } = require('../models');
 const createBlogpost = async (req,res) => {
     try{
       console.log(req.body);
-        const newBlog = await Blogpost.create({...req.body});
+        const newBlog = await Blogpost.create( {
+            title: req.body.title,
+            contents: req.body.contents,
+            user_id: req.session.user_id
+        });
         res.status(200).json({
             message: 'Success! New blogpost created.',
             data: newBlog

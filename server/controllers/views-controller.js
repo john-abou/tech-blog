@@ -1,4 +1,4 @@
-const { Blogpost, User } = require('../models');
+const { Blogpost, User, Comment } = require('../models');
 
 // GET request to login page
 const loginPage = async (req, res) => {
@@ -33,10 +33,21 @@ const homepage = async (req, res) => {
 const singleBlogPage = async (req, res) => {
   try {
     const blogpostData = await Blogpost.findByPk(req.params.id, {
-      include: {
-        model: User,
-        attributes: ["name"],
-      }
+      // Query the blogpost model and include the name of the user and all comments from the Comment model
+      include: [
+        {
+          model: User,
+          attributes: ["name"],
+        },
+        {
+          model: Comment,
+          attributes: ["comment_text"],
+          include: {
+            model: User,
+            attributes: ["name"],
+          },
+        },
+      ],
     });
     const blogpost = blogpostData.get({ plain: true });
 
