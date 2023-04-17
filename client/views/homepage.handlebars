@@ -1,26 +1,25 @@
 <!-- Loop over each object in the blogposts array -->
 <div class="row" id="blogpost-header">
-  <div class="col-9">
-    <h1>Blogposts</h1>
-    <p>Click on a blogpost to see more details</p>
-  </div>
   {{#if loggedIn}}
-  <div class="col-3"> 
-    <a class="btn btn-primary" id="new-post-btn">Create a new blogpost</a>
+  <div class="col-12 mb-4"> 
+    <a class="btn btn-primary" id="new-post-btn">New Blog</a>
   </div>
   {{/if}}
 </div>
-<div id="blogposts-container">
+<div id="row blogposts-container">
   {{#each blogposts as |blogpost| }}
-  <div class="row mb-4 blogpost">
-    <div class="col-md-5">
-      <h3>
-        <a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a>
-      </h3>
-      <p>
-        {{blogpost.contents}}
+  <div class="mb-4 blogpost col-md-12 col-lg-6">
+    <h3>
+      <a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a>
+    </h3>
+    <p>
+      {{truncate blogpost.contents 300}}
+    </p>
+    <div class="blog-footer row">
+      <p class="created-by col-4"><span class="text-muted">Author: </span><a href="/user/{{blogpost.user.id}}">{{blogpost.user.name}}</a></p>
+      <p class="text-muted col-8 text-end">
+        {{format_date blogpost.date_created}}
       </p>
-      <p>Created by <a href="/user/{{blogpost.user.id}}">{{blogpost.user.name}}</a> on {{blogpost.date_created}}</p>
     </div>
   </div>
   {{/each}}

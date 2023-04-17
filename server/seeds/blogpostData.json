@@ -1,20 +1,32 @@
 [
     {
-        "title": "Top 5 comedy podcasts",
-        "contents": "Bad Friends, Flagrant2, Your moms house, tiger belly, Whiskey ginger",
-        "date_created": "2022-02-27",
+        "title": "How artificial intelligence is transforming the world",
+        "contents": "Most people are not very familiar with the concept of artificial intelligence (AI). As an illustration, when 1,500 senior business leaders in the United States in 2017 were asked about AI, only 17 percent said they were familiar with it.[1] A number of them were not sure what it was or how it would affect their particular companies. They understood there was considerable potential for altering business processes, but were not clear how AI could be deployed within their own organizations.",
+        "user_id": 2
+    },
+    {
+        "title": "Speeding up drug discovery with diffusion generative models",
+        "contents": "With the release of platforms like DALL-E 2 and Midjourney, diffusion generative models have achieved mainstream popularity, owing to their ability to generate a series of absurd, breathtaking, and often meme-worthy images from text prompts like “teddy bears working on new AI research on the moon in the 1980s.” But a team of researchers at MIT's Abdul Latif Jameel Clinic for Machine Learning in Health (Jameel Clinic) thinks there could be more to diffusion generative models than just creating surreal images — they could accelerate the development of new drugs and reduce the likelihood of adverse side effects.",
+        "user_id": 2
+    },
+    {
+        "title": "A method for designing neural networks optimally suited for certain tasks",
+        "contents": "Neural networks, a type of machine-learning model, are being used to help humans complete a wide variety of tasks, from predicting if someone’s credit score is high enough to qualify for a loan to diagnosing whether a patient has a certain disease. But researchers still have only a limited understanding of how these models work. Whether a given model is optimal for certain task remains an open question.",
         "user_id": 1
     },
     {
-        "title": "Top 3 comedians",
-        "contents": "Bill Burr, Dave Chapelle, Andrew Schulz",
-        "date_created": "2022-02-27",
+        "title": "Reliably detecting AI-generated text is mathematically impossible",
+        "contents": "The ease with which artificial intelligence can generate and paraphrase language means that detectors to spot AI content will only be as accurate as flipping a coin. Determining whether text has come from artificial intelligence models like ChatGPT might be impossible to do reliably, according to a new mathematical proof. The ease with which AI models generate text that seems as if it were written by a human has led to issues such as cheating on essays and exams, and mass disinformation campaigns. So some people have suggested methods to guard against such uses by embedding a hidden watermark in the …",
+        "user_id": 1
+    },
+    {
+        "title": "Lorem ipsum",
+        "contents": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras gravida nunc vel nunc finibus facilisis ut non quam. Curabitur porttitor pharetra magna, eu viverra enim dignissim vel. Donec sodales dolor at viverra congue. Pellentesque eu neque non lectus consequat scelerisque. Nulla aliquam feugiat arcu nec lacinia. Duis diam nisl, vehicula at massa pellentesque, rutrum vulputate sem. Fusce eget pulvinar erat, ac facilisis tortor. Nunc ornare scelerisque bibendum.",
         "user_id": 1
     },
     {
         "title": "Top 5 comedy podcasts",
         "contents": "Congratulations, Fighter and the Kid, 2Bears1Cave, Impaulsive, JRE",
-        "date_created": "2022-02-27",
         "user_id": 2
     }
 ]
