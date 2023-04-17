@@ -1,30 +1,18 @@
 const newPostBtn = $('#new-post-btn');
+const newPostBtnContainer = $('.new-post-btn-container');
 const submitBtn = $('#submit-btn');
+const cancelBtn = $('#cancel-btn');
+const newBlogContainer = $('#new-blog-container');
 
 // Create prompts for the user to enter a title and content for the new blog post
-const blogpostPrompt = () => {
-  const titleInput = $('<input>').attr('id', 'title');
-  const contentInput = $('<textarea>').attr('id', 'content');
-  const submitBtn = $('<button>').attr('id', 'submit-btn').text('Submit');
+const showNewBlogPost = () => {
+  newBlogContainer.removeClass('hidden'); 
+  newPostBtnContainer.addClass('hidden');
+}
 
-  // Style the prompts with bootstrap
-  titleInput.addClass('form-control mt-3 mb-1 mx-auto col-12 shadow-lg border border-dark rounded');
-  titleInput.attr('placeholder', 'Blog title...');
-  contentInput.addClass('form-control mt-3 mb-5 col-12 mx-auto shadow-lg border border-dark rounded');
-  contentInput.attr('placeholder', 'Blog content...');
-  contentInput.attr('rows', '5');
-  contentInput.attr('maxlength', '10000')
-  submitBtn.addClass('btn btn-primary mt-5 col-12 mx-auto shadow-lg border border-dark rounded');
-
-  // Empty all the content in the homepage and load the prompts
-  const blogpostHeader = $('#blogpost-header');
-  const blogpostContainer = $('#blogposts-container');
-  blogpostHeader.empty();
-  blogpostContainer.empty();
-  blogpostHeader.append(titleInput, contentInput, submitBtn);
-
-  // Add event listener to the submit button
-  submitBtn.click( newPostHandler );
+const hideNewBlogPost = () => {
+  newBlogContainer.addClass('hidden');
+  newPostBtnContainer.removeClass('hidden');
 }
 
 const newPostHandler = async (event) => {
@@ -45,4 +33,6 @@ const newPostHandler = async (event) => {
   }
 }
 
-newPostBtn.click( blogpostPrompt );
+newPostBtn.click( showNewBlogPost );
+cancelBtn.click( hideNewBlogPost );
+submitBtn.click( newPostHandler );

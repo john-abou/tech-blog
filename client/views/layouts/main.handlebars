@@ -18,13 +18,13 @@
 <body>
   <div class="vh-100">
     <header class="display-flex justify-content-between align-center p-2 navbar-container">
-      <h1>
+      <h1 class="ms-5">
         Tech-Blog
       </h1>
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if loggedIn}}
-        <div class="logged-in me-5">
+        <div class="logged-in me-md-5 fs-6">
           <a href="/homepage">Home</a>
           <a href="/profile">Profile</a>
           <a href="/logout" id="logout">Logout</a>
@@ -34,7 +34,7 @@
         {{/if}}
       </nav>
     </header>
-    <main class="container mx-4 mt-4 timeline">
+    <main class="container-fluid mt-4">
         <!-- Render the sub layout -->
         {{{ body }}}
     </main>
