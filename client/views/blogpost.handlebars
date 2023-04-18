@@ -1,10 +1,15 @@
-<article class="text-center">
-  <p>Created by <a href="/user/{{blogpost.user.id}}">{{blogpost.user.name}}</a></p>
-  <h5>{{blogpost.title}}</h5>
-  <p> {{blogpost.contents}} </p>
-  <div class="col-md-7">
-    <p>
-      {{blogpost.comment}}
+<article class="row mt-4 justify-content-center">
+  <div class="col-10 blogpost">
+    <p class="author col-6"><a href="/user/{{blogpost.user.id}}">{{blogpost.user.name}}</a></p>
+    <h5>{{blogpost.title}}</h5>
+    <p> {{blogpost.contents}} </p>
+    <p class="text-muted col-12 text-end">
+      {{format_date blogpost.date_created}}
     </p>
+    <div>
+      <p>
+        {{blogpost.comment}}
+      </p>
+    </div>
   </div>
 </article>

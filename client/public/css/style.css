@@ -81,6 +81,9 @@ background-color: #5B96F5;
 .created-by {
   margin: 1rem 0 0;
 }
+.author {
+  margin: 0.7rem 0;
+}
 .btn-primary {
   background-color: #0275d8;
   border: none;

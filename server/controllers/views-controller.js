@@ -72,10 +72,15 @@ const profilePage = async (req, res) => {
       where: {
         user_id: req.params.userId,
       },
+      include: {
+        model: User,
+        attributes: ["name", "id"],
+      },
     });
-    console.log(userBlogposts);
-    const blogposts = userBlogposts.map((blog) => blog.get({ plain: true }));
 
+    const blogposts = userBlogposts.map((blog) => blog.get({ plain: true }));
+    console.log(blogposts);
+    
     res.render("profile", {
       blogposts,
       loggedIn: req.session.loggedIn
