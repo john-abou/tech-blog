@@ -18,22 +18,24 @@
 <body>
   <div class="vh-100">
     <header class="display-flex justify-content-between align-center p-2 navbar-container">
-      <h1 class="ms-5">
+      <h1 class="nav-header">
         Tech-Blog
       </h1>
-      <nav>
+      <nav class="nav-links">
         <!-- Conditionally render login or logout links -->
         {{#if loggedIn}}
-        <div class="logged-in me-md-5 fs-6">
+        <div class="fs-6">
           <a href="/homepage">Home</a>
           <a href="/profile">Profile</a>
-          <a href="/logout" id="logout">Logout</a>
+          <a href="#" id="logout">Logout</a>
         </div>
         {{else}}
-        <a class="me-5" href="/login">login</a>
+        <a href="/login">login</a>
         {{/if}}
       </nav>
     </header>
+
+
     <main class="container-fluid mt-4">
         <!-- Render the sub layout -->
         {{{ body }}}

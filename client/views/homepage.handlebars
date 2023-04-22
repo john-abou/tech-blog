@@ -1,35 +1,37 @@
 <!-- Loop over each object in the blogposts array -->
-<div class="row justify-content-center">
-  <div class="col-9 hidden mb-5" id="new-blog-container">
-    <input id="title" class="form-control mt-3 mb-1 mx-auto shadow border border-dark rounded" placeholder="Blog title...">
-    <textarea id="content" class="form-control mt-3 mb-3 mx-auto shadow border border-dark rounded" placeholder="Blog content..." rows="5" maxlength="10000"></textarea>
-    <div class="text-center">
-      <button id="submit-btn" class="btn btn-primary mt-2 mb-2 mx-auto border border-dark rounded">Submit</button>
-      <button id="cancel-btn" class="btn btn-primary mt-2 mb-2 mx-auto border border-dark rounded">Cancel</button>
+<div class="posts-background">
+  <div class="row justify-content-center">
+    <div class="col-9 hidden my-5" id="new-blog-container">
+      <input id="title" class="form-control mt-3 mb-1 mx-auto shadow border border-dark rounded" placeholder="Blog title...">
+      <textarea id="content" class="form-control mt-3 mb-3 mx-auto shadow border border-dark rounded" placeholder="Blog content..." rows="5" maxlength="10000"></textarea>
+      <div class="text-center">
+        <button id="submit-btn" class="btn btn-primary mt-2 mb-2 mx-auto border border-dark rounded">Submit</button>
+        <button id="cancel-btn" class="btn btn-primary mt-2 mb-2 mx-auto border border-dark rounded">Cancel</button>
+      </div>
     </div>
+    {{#if loggedIn}}
+    <div class="col-12 my-4 text-center new-post-btn-container"> 
+      <a class="btn btn-primary" id="new-post-btn">New Blog</a>
+    </div>
+    {{/if}}
   </div>
-  {{#if loggedIn}}
-  <div class="col-12 mb-4 text-center new-post-btn-container"> 
-    <a class="btn btn-primary" id="new-post-btn">New Blog</a>
-  </div>
-  {{/if}}
-</div>
-<div class="row justify-content-center">
-  {{#each blogposts as |blogpost| }}
-  <div class="mb-4 mx-4 blogpost col-10 col-xl-5">
-    <h3>
-      <a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a>
-    </h3>
-    <p class="mt-4">
-      {{truncate blogpost.contents 300}}
-    </p>
-    <div class="blog-footer row mt-2">
-      <p class="created-by col-6"><span class="text-muted">Author: </span><a href="/user/{{blogpost.user.id}}">{{blogpost.user.name}}</a></p>
-      <p class="text-muted col-6 text-end">
-        {{format_date blogpost.date_created}}
+  <div class="row justify-content-center">
+    {{#each blogposts as |blogpost| }}
+    <div class="my-4 mx-4 blogpost col-10 col-xl-5">
+      <h3>
+        <a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a>
+      </h3>
+      <p class="mt-4">
+        {{truncate blogpost.contents 300}}
       </p>
+      <div class="blog-footer row mt-2">
+        <p class="created-by col-6"><span class="text-muted">Author: </span><a href="/user/{{blogpost.user.id}}">{{blogpost.user.name}}</a></p>
+        <p class="text-muted col-6 text-end">
+          {{format_date blogpost.date_created}}
+        </p>
+      </div>
     </div>
+    {{/each}}
   </div>
-  {{/each}}
-  </div>
+</div>
 <script src="/js/homepage.js"></script>
