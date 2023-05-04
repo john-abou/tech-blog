@@ -127,3 +127,48 @@ a {
 body {
   font-family: 'Roboto', sans-serif;
 }
+
+
+/* Media Queries - Breakpoints */
+@media screen and (max-width: 768px) {
+  /* Navbar */
+  .nav-header {
+    margin-left: 1rem;
+  }
+  .nav-links {
+    margin-right: 1rem;
+  }
+  .nav-links a {
+    margin: 0 1rem;
+  }
+
+  /* Login/signup form */
+  .form {
+    margin: 0 1rem;
+  }
+
+  /* Homepage */
+  .posts-background {
+    margin: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  /* Navbar */
+  .nav-header {
+    display: none;
+  }
+  .navbar-container{
+    justify-content: center;
+  }
+
+  /* Login/signup form */
+  .form {
+    margin: 0 1rem;
+  }
+
+  /* Homepage */
+  .posts-background {
+    margin: 0 1rem;
+  }
+}
