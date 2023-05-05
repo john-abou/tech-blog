@@ -2,16 +2,16 @@
 
 /* Navbar styling */
 .navbar-container{
-background-color: #0275d8;
-color: #fff;
-height: 60px;
-font-size: 1.5rem;
-font-weight: bold;
-padding: 1rem;
-margin: 0;
-display: flex;
-justify-content: space-between;
-align-items: center;
+  background-color: #0275d8;
+  color: #fff;
+  height: auto;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .navbar-container a{
 color: #fff;
@@ -31,6 +31,13 @@ text-decoration: underline;
   margin-left: 5rem;
 }
 .nav-links {
+  margin-right: 5rem;
+}
+.custom-spacing{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
   margin-right: 5rem;
 }
 
@@ -135,30 +142,10 @@ body {
   .nav-header {
     margin-left: 1rem;
   }
-  .nav-links {
+  .custom-icon{
     margin-right: 1rem;
   }
-  .nav-links a {
-    margin: 0 1rem;
-  }
-
-  /* Login/signup form */
-  .form {
-    margin: 0 1rem;
-  }
-
-  /* Homepage */
-  .posts-background {
-    margin: 0 1rem;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  /* Navbar */
-  .nav-header {
-    display: none;
-  }
-  .navbar-container{
+  .custom-spacing{
     justify-content: center;
   }
 
