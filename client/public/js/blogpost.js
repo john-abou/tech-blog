@@ -14,7 +14,8 @@ const deletePostHandler = async (event) => {
     .then((data) => {
       console.log(data);
       if (data.message === 'Success! Deleted the post.') {
-        document.location.reload();
+        // redirect to homepage
+        document.location.replace('/');
       }
     })
     .catch((err) => console.log(err));

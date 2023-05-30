@@ -45,6 +45,7 @@ const updateBlogpost = async (req,res) => {
 // DELETE a blogpost
 const deleteBlogpost = async (req,res) => {
     try {
+        console.log('req.params.id', req.params.id);
         const blogData = await Blogpost.destroy({
             where: {
                 id: req.params.id
