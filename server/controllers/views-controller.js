@@ -55,6 +55,8 @@ const singleBlogPage = async (req, res) => {
     });
     const blogpost = blogpostData.get({ plain: true });
 
+    console.log(blogpost);
+
     res.render("blogpost", {
       blogpost,
       loggedIn: req.session.loggedIn
