@@ -118,6 +118,14 @@ background-color: #5B96F5;
 .text-muted{
   font-size: .9rem;
 }
+.delete-emoji{
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 
 /* General styling */

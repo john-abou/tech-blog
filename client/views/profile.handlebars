@@ -1,19 +1,35 @@
 <section>
-<div class="row justify-content-center">
-  {{#each blogposts as |blogpost| }}
-  <div class="col-10 mb-4 blogpost">
-    <h3>
-      <a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a>
-    </h3>
-    <p>
-      {{blogpost.contents}}
-    </p>
-      <p class="created-by col-6 "><span class="text-muted">Author: </span><a href="/user/{{blogpost.user_id}}">{{blogpost.user.name}}</a></p>
-      <p class="text-muted col-6">
-        {{format_date blogpost.date_created}}
-      </p>  
+  <div class="row justify-content-center">
+    {{#each blogposts as |blogpost| }}
+    <div class="col-10 mb-4 blogpost">
+      <h3>
+        <a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a>
+      </h3>
+      <p>
+        {{blogpost.contents}}
+      </p>
+      {{#if ../usersPage}}
+        <div class="row">
+          <div class="col-10">
+            <p class="created-by col-12"><span class="text-muted">Author: </span><a href="/user/{{blogpost.user_id}}">{{blogpost.user.name}}</a></p>
+            <p class="text-muted col-12">
+              {{format_date blogpost.date_created}}
+            </p> 
+          </div>
+          <p class="delete-emoji col-2"><span>🗑️</span></p>
+        </div>
+      {{else}}
+        <div class="row">
+          <div class="col-10">
+            <p class="created-by col-12"><span class="text-muted">Author: </span><a href="/user/{{blogpost.user_id}}">{{blogpost.user.name}}</a></p>
+            <p class="text-muted col-12">
+              {{format_date blogpost.date_created}}
+            </p> 
+          </div>
+        </div>
+      {{/if}}
     </div>
-  {{/each}}
+    {{/each}}
   </div>
 </section>
 <script src="/js/profile.js"></script>
