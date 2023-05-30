@@ -54,12 +54,17 @@ const singleBlogPage = async (req, res) => {
       ],
     });
     const blogpost = blogpostData.get({ plain: true });
+    console.log(blogpost)
 
-    console.log(blogpost);
+    const isUsersPage = req.session.userId == blogpost.user_id;
+    console.log('isUsersPage: ', isUsersPage)
+    console.log('req.session.userId: ', req.session.userId)
+    console.log('blogpost.user_id: ', blogpost.user_id)
 
     res.render("blogpost", {
       blogpost,
-      loggedIn: req.session.loggedIn
+      loggedIn: req.session.loggedIn,
+      usersPage: isUsersPage
     });
   } catch (err) {
     console.log(err);
@@ -83,11 +88,6 @@ const profilePage = async (req, res) => {
     const blogposts = userBlogposts.map((blog) => blog.get({ plain: true }));
 
     const isUsersPage = req.session.userId == req.params.userId;
-    console.log('req.session.userId', req.session.userId);
-    console.log('req.params.userId', req.params.userId);
-    console.log('isUsersPage', isUsersPage);
-
-    console.log('blogposts.userPage', blogposts.userPage);
 
     res.render("profile", {
       blogposts,
@@ -100,42 +100,9 @@ const profilePage = async (req, res) => {
   }
 };
 
-// const userPage = async (req, res) => {
-//   try {
-//     const userBlogposts = await Blogpost.findAll({
-//       where: {
-//         user_id: req.session.userId,
-//       },
-//     });
-//     console.log(userBlogposts);
-//     const blogposts = userBlogposts.map((blog) => blog.get({ plain: true }));
-
-//     const isUsersPage = req.session.userId == req.params.userId;
-//     console.log('req.session.userId', req.session.userId);
-//     console.log('req.params.userId', req.params.userId);    
-//     console.log('isUsersPage', isUsersPage);
-
-//     console.log({
-//       blogposts,
-//       loggedIn: req.session.loggedIn,
-//       usersPage: isUsersPage
-//     })
-
-//     res.render("profile", {
-//       blogposts,
-//       loggedIn: req.session.loggedIn,
-//       usersPage: isUsersPage
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// }
-
 module.exports = {
   loginPage,
   homepage,
   singleBlogPage,
   profilePage
-  // userPage
 };

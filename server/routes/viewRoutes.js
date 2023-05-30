@@ -4,7 +4,6 @@ const {
     homepage,
     singleBlogPage,
     profilePage
-    // userPage
 } = require('../controllers/views-controller')
 const withAuth = require('../helpers/auth')
 
