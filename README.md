@@ -4,6 +4,8 @@
 
 ## Table of Contents
 - [Description](#description)
+- [Deployment](#deployment)
+- [Technologies](#technologies)
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
@@ -17,6 +19,14 @@ This is a tech-blog website built using node.js, express.js, MySQL/sequelize and
 ## Deployment
 <a href="https://johns-blogsite.herokuapp.com/">Webpage Link</a>
 <img src='client/public/images/tech-blog.png'>
+
+## Technologies
+* Node.js
+* Express.js
+* MySQL
+* Sequelize
+* Handlebars
+* bcrypt
 
 ## Installation
 To install and run this website on your local machine: 
